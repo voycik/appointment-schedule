@@ -36,7 +36,7 @@ class PatientCardsController < ApplicationController
   private
 
   def find_patient
-    @patient = Patient.find(params[:id])
+    @patient = PatientCard.find(params[:id])
   end
 
   def patient_card_params
