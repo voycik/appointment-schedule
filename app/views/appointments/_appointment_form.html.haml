@@ -1,0 +1,5 @@
+= simple_form_for @appointment do |f|
+  = f.input :patient_card_id, collection: @patient_cards, label_method: :last_name
+  = f.input :start_time
+  = f.input :end_time
+  = f.button :submit
