@@ -1,2 +1,7 @@
-%h1 Appointments#index
-%p Find me in app/views/appointments/index.html.haml
+= week_calendar events: @appointments do |date, appointments|
+  = date
+  - appointments.each do |appointment|
+    %div
+      = link_to "#{appointment.start_time.hour}:#{appointment.start_time.min} #{appointment.patient_card.first_name} #{appointment.patient_card.last_name}", appointment_path(appointment)
+
+= link_to 'Dodaj wizytę', new_appointment_path, class: 'btn btn-info btn-md'
