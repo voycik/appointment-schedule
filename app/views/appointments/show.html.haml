@@ -1,2 +1,4 @@
-%h1 Appointments#show
-%p Find me in app/views/appointments/show.html.haml
+%h3= "#{@appointment.start_time.day}.#{@appointment.start_time.month}.#{@appointment.start_time.year}, godz. #{@appointment.start_time.hour}:#{@appointment.start_time.min}"
+%p= "Pacjent: #{@appointment.patient_card.first_name} #{@appointment.patient_card.last_name}"
+%p= "Uwagi dla pacjenta: #{@appointment.public_comment}"
+%p= "Uwagi niewidoczne dla pacjenta: #{@appointment.private_comment}"

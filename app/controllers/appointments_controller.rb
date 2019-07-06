@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+  before_action :find_appointment, only: %i[show edit update destroy]
   def index
     @appointments = Appointment.all
   end
@@ -19,5 +20,11 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def find_appointment
+    @appointment = Appointment.find(params[:id])
   end
 end
