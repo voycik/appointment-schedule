@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'rubocop-rails'
 gem 'simple_calendar', '~> 2.0'
+gem 'simple_form'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
