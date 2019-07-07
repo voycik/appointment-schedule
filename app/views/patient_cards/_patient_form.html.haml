@@ -1,0 +1,7 @@
+= simple_form_for @patient do |f|
+  = f.input :last_name
+  = f.input :first_name
+  = f.input :date_of_birth, start_year: Date.today.year - 100, end_year: Date.today.year
+  = f.input :phone_number
+  = f.input :comments
+  = f.button :submit, class: 'btn btn-info btn-md'
