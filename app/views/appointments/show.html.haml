@@ -1,5 +1,5 @@
-%h3= "#{@appointment.start_time.day}.#{@appointment.start_time.month}.#{@appointment.start_time.year}, godz. #{@appointment.start_time.hour}:#{@appointment.start_time.min}"
-Pacjent: 
+%h3=@appointment.start_time.strftime("%d %B %Y, godz. %R")
+Pacjent:
 =link_to @patient_card.full_name, patient_card_path(@patient_card)
 %p= "Uwagi dla pacjenta: #{@appointment.public_comment}"
 %p= "Uwagi niewidoczne dla pacjenta: #{@appointment.private_comment}"

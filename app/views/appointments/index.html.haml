@@ -2,6 +2,6 @@
   = date
   - appointments.each do |appointment|
     %div
-      = link_to "#{appointment.start_time.hour}:#{appointment.start_time.min} #{appointment.patient_card.full_name}", appointment_path(appointment)
+      = link_to "#{appointment.hour} #{appointment.patient_card.full_name}", appointment_path(appointment)
 
 = link_to 'Dodaj wizytę', new_appointment_path, class: 'btn btn-info btn-md'
