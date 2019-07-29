@@ -1,10 +1,11 @@
-class AppointmentsController < ApplicationController
+class AppointmentsController < ApplicationController  
   before_action :find_appointment, only: %i[show edit update destroy]
   def index
-    @appointments = Appointment.all
+    @appointments = AppointmentDecorator.decorate_collection(Appointment.all)
   end
 
   def show
+    @patient_card = @appointment.patient_card.decorate
   end
 
   def new
