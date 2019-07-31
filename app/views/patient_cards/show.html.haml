@@ -1,2 +1,6 @@
-%h1 PatientCards#show
-%p Find me in app/views/patient_cards/show.html.haml
+%h1 Karta pacjenta
+.col-8
+    %p Imię: #{@patient.first_name}
+    %p Nazwisko: #{@patient.last_name}
+    %p Data urodzenia: #{@patient.date_of_birth}
+    %p Nr tel: #{@patient.phone_number}
