@@ -1,4 +1,4 @@
-class AppointmentsController < ApplicationController  
+class AppointmentsController < ApplicationController
   before_action :find_appointment, only: %i[show edit update destroy]
   def index
     @appointments = AppointmentDecorator.decorate_collection(Appointment.all)
@@ -10,7 +10,14 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
-    @patient_cards = PatientCard.all
+    @patient_cards = PatientCardDecorator.decorate_collection(PatientCard.all)
+    if params[:patient_card_id]
+      @patient = PatientCard.find(params[:patient_card_id].to_i)
+      @url = patient_card_appointments_path(@patient)
+    else
+      @url = appointments_path
+    end
+
   end
 
   def create
@@ -41,6 +48,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:patient_card_id, :start_time, :end_time, :private_comment, :public_commen).merge!(user_id: 3)
+    params.require(:appointment).permit(:patient_card_id, :start_time, :end_time, :private_comment, :public_commen).merge!(user_id: 3, patient_card_id: params[:patient_card_id].to_i)
   end
 end

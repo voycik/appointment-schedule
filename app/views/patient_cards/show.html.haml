@@ -5,6 +5,7 @@
   %p Data urodzenia: #{@patient.date_of_birth}
   %p Nr tel: #{@patient.phone_number}
 %h3 Wizyty
+= link_to 'Umów wizytę',new_patient_card_appointment_path(@patient), class: 'btn btn-primary btn-xs'
 
 %table.table.table-hover
   %thead
