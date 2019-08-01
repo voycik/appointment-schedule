@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :patient_cards
+  resources :patient_cards do
+    resources :appointments
+  end
   resources :appointments
   root 'appointments#index'
 
