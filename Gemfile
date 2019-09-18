@@ -32,7 +32,7 @@ gem 'rubocop-rails'
 gem 'simple_calendar', '~> 2.0'
 gem 'simple_form'
 gem 'draper'
-
+gem 'rails-i18n', '~> 5.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
