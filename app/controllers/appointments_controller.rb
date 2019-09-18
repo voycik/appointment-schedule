@@ -2,7 +2,7 @@ class AppointmentsController < ApplicationController
   before_action :find_appointment, only: %i[show edit update destroy]
   before_action :patient_cards, only: %i[new create]
   def index
-    @appointments = AppointmentDecorator.decorate_collection(Appointment.all)
+    @appointments = AppointmentDecorator.decorate_collection(Appointment.where(user_id: current_user.id))
   end
 
   def show
@@ -50,7 +50,7 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:patient_card_id, :start_time, :end_time, :private_comment, :public_comment).merge!(user_id: 3)
+    params.require(:appointment).permit(:patient_card_id, :start_time, :end_time, :private_comment, :public_comment).merge!(user_id: current_user.id)
   end
 
   def patient_cards
