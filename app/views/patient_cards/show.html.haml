@@ -30,6 +30,6 @@
           %a{href:appointment_path(appointment)}
             = appointment.public_comment
         %td
-          = link_to 'Odwołaj wizytę',appointment_path(appointment), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
+          = link_to 'Odwołaj wizytę',appointment_path(appointment), method: :delete, data: {confirm: 'Czy na pewno chcesz usunąć tą wizytę?'}, class: 'btn btn-danger btn-xs'
 
           = link_to 'Edytuj', edit_appointment_path(appointment), class: 'btn btn-warning btn-xs'
