@@ -1,5 +1,5 @@
 %h1 Lista pacjentów
-
+= link_to 'Dodaj pacjenta', new_patient_card_path, class: 'btn btn-primary btn-md'
 %table.table.table-hover
   %thead
     %tr
@@ -23,6 +23,6 @@
         %td= patient.date_of_birth
         %td= patient.phone_number
         %td
-          = link_to 'Umów wizytę',new_appointment_path(patient_card_id: patient.id), class: 'btn btn-primary btn-xs'
+          = link_to 'Umów wizytę',new_patient_card_appointment_path(patient), class: 'btn btn-primary btn-xs'
           = link_to 'Edytuj', edit_patient_card_path(patient), class: 'btn btn-warning btn-xs'
-          = link_to 'Usuń', patient_card_path(patient), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
+          = link_to 'Usuń', patient_card_path(patient), method: :delete, data: {confirm: 'Czy na pewno chcesz usunąc tego pacjenta??'}, class: 'btn btn-danger btn-xs'

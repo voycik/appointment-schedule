@@ -1,17 +1,17 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
+%img.rounded.mx-auto.d-block{width: 200, :alt => "Holistic Agnieszka Miller", :src => "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/15965398_119721835202168_8794265570537286699_n.jpg?_nc_cat=105&_nc_oc=AQk6clLUJhRpEGz6ltEzEpLtdbHdT_RlRQqdnatRO7p28lLXDGzteHF4hUYf9pbrAmg&_nc_ht=scontent-waw1-1.xx&oh=35abea6d41fffa28c90b02695c752b23&oe=5DF9678B"}/
+.row.justify-content-center
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email"
+    .field
+      = f.label "Hasło"
+      %br/
+      = f.password_field :password, autocomplete: "current-password"
+    - if devise_mapping.rememberable?
+      .field
+        = f.check_box :remember_me
+        = f.label "Zapamiętaj mnie"
+    .actions
+      = f.submit "Zaloguj"

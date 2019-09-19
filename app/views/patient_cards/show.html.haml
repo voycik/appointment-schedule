@@ -1,2 +1,35 @@
-%h1 PatientCards#show
-%p Find me in app/views/patient_cards/show.html.haml
+%h1 Karta pacjenta
+.col-8
+  %p Imię: #{@patient.first_name}
+  %p Nazwisko: #{@patient.last_name}
+  %p Data urodzenia: #{@patient.date_of_birth}
+  %p Nr tel: #{@patient.phone_number}
+%h3 Wizyty
+= link_to 'Umów wizytę',new_patient_card_appointment_path(@patient), class: 'btn btn-primary btn-xs'
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th{:scope => "col"} #
+      %th{:scope => "col"} Data
+      %th{:scope => "col"} Komentarz
+      %th{:scope => "col"} Zalecenia
+      %th{:scope => "col"}
+  %tbody
+    - @patient.appointments.each_with_index do |appointment, index|
+      %tr
+        %th{scope: "row"}
+          = index + 1
+        %td
+          %a{href:appointment_path(appointment)}
+            = appointment.start_time
+        %td
+          %a{href:appointment_path(appointment)}
+            = appointment.private_comment
+        %td
+          %a{href:appointment_path(appointment)}
+            = appointment.public_comment
+        %td
+          = link_to 'Odwołaj wizytę',appointment_path(appointment), method: :delete, data: {confirm: 'Czy na pewno chcesz usunąć tą wizytę?'}, class: 'btn btn-danger btn-xs'
+
+          = link_to 'Edytuj', edit_appointment_path(appointment), class: 'btn btn-warning btn-xs'

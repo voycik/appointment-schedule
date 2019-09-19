@@ -24,15 +24,17 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'bootstrap', '~> 4.3.1'
-gem 'devise'
+gem 'devise', '>= 4.7.1'
 gem 'haml-rails', '~> 2.0'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'rubocop-rails'
 gem 'simple_calendar', '~> 2.0'
 gem 'simple_form'
+gem 'draper'
+gem 'rails-i18n', '~> 5.1'
 gem 'faker'
-
+gem 'factory_bot_rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -51,7 +53,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 3.8'
-  gem 'factory_bot_rails'
 end
 
 group :development do

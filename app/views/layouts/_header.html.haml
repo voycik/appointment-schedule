@@ -1,0 +1,12 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-info
+  %a.navbar-brand{:href => root_path}
+    -# %img.d-inline-block.align-top{:alt => "", :height => "30", :src => "/docs/4.3/assets/brand/bootstrap-solid.svg", :width => "30"}/
+    Holistic
+  %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    %ul.navbar-nav
+      %li.nav-item
+        =link_to "Pacjenci", patient_cards_path, class: 'nav-link'
+  %ul.nav.navbar-nav.navbar-right
+    =link_to "Wyloguj", destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-sm'
