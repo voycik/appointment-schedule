@@ -5,7 +5,7 @@ FactoryBot.define do
     first_name { Faker::Name.first_name }
     last_name  { Faker::Name.last_name }
     date_of_birth { 45.years.ago }
-    phone_number { 60_012_357 }
+    phone_number { 600123123 }
     comments { 'He has problems with left shoulder.' }
   end
 end
