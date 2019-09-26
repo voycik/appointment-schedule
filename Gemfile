@@ -33,6 +33,8 @@ gem 'simple_calendar', '~> 2.0'
 gem 'simple_form'
 gem 'draper'
 gem 'rails-i18n', '~> 5.1'
+gem 'faker'
+gem 'factory_bot_rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -51,6 +53,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 3.8'
+
+end
+
+group :test do
+  gem 'rails-controller-testing'
+  gem 'simplecov', require: false
 end
 
 group :development do
