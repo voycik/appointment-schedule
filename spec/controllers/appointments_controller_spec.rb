@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe AppointmentsController, type: :controller do
-
   let!(:physio) { FactoryBot.create(:physio) }
   let!(:patient_card) { FactoryBot.create(:patient_card) }
 
@@ -14,16 +15,30 @@ RSpec.describe AppointmentsController, type: :controller do
   let(:appointment) { FactoryBot.create(:appointment) }
 
   subject { appointment }
-  describe "GET #index" do
-
+  describe 'GET #index' do
     context 'Signed in physioterapist' do
       before :each do
         sign_in physio
         get :index
       end
+
       it 'renders the :index view' do
-       expect(response).to render_template(:index)
-     end
+        expect(response).to render_template(:index)
+      end
+
+      it 'populates an array of appointments' do
+        expect(assigns(:appointments)).to eq([appointment])
+      end
+    end
+
+    context 'Non-signed in physioterapist' do
+      before :each do
+        get :index
+      end
+
+      it 'redirects to sign in view' do
+        expect(response).to redirect_to(new_user_session_path)
+      end
     end
   end
   #
@@ -68,5 +83,4 @@ RSpec.describe AppointmentsController, type: :controller do
   #     expect(response).to have_http_status(:success)
   #   end
   # end
-
 end
