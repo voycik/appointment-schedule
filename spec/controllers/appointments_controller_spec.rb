@@ -41,21 +41,39 @@ RSpec.describe AppointmentsController, type: :controller do
       end
     end
   end
-  #
-  # describe "GET #show" do
-  #   it "returns http success" do
-  #     get :show
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
 
-  describe "GET #new" do
+  describe 'GET #show' do
+    context 'Signed in physioterapist' do
+      before :each do
+        sign_in physio
+        get :show, params: { id: appointment.id }
+      end
+      it 'returns http success' do
+        expect(response).to have_http_status(:success)
+      end
+
+      it 'renders the :show view' do
+        expect(response).to render_template(:show)
+      end
+    end
+    context 'Non-signed in physioterapist' do
+      before do
+        get :show, params: { id: appointment.id }
+      end
+
+      it 'redirects to sign in view' do
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
+
+  describe 'GET #new' do
     context 'Signed in physioterapist' do
       before :each do
         sign_in physio
         get :new
       end
-      it "returns http success" do
+      it 'returns http success' do
         expect(response).to have_http_status(:success)
       end
 
@@ -64,7 +82,7 @@ RSpec.describe AppointmentsController, type: :controller do
       end
 
       it 'renders the :new view from patient_card' do
-        get :new, params: {patient_card_id: patient_card.id}
+        get :new, params: { patient_card_id: patient_card.id }
       end
     end
 
@@ -76,7 +94,6 @@ RSpec.describe AppointmentsController, type: :controller do
       it 'redirects to sign in view' do
         expect(response).to redirect_to(new_user_session_path)
       end
-
     end
   end
   #
