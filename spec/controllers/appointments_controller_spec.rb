@@ -32,7 +32,7 @@ RSpec.describe AppointmentsController, type: :controller do
     end
 
     context 'Non-signed in physioterapist' do
-      before :each do
+      before do
         get :index
       end
 
@@ -49,12 +49,36 @@ RSpec.describe AppointmentsController, type: :controller do
   #   end
   # end
 
-  # describe "GET #new" do
-  #   it "returns http success" do
-  #     get :new
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
+  describe "GET #new" do
+    context 'Signed in physioterapist' do
+      before :each do
+        sign_in physio
+        get :new
+      end
+      it "returns http success" do
+        expect(response).to have_http_status(:success)
+      end
+
+      it 'renders the :new view' do
+        expect(response).to render_template(:new)
+      end
+
+      it 'renders the :new view from patient_card' do
+        get :new, params: {patient_card_id: patient_card.id}
+      end
+    end
+
+    context 'Non-signed in physioterapist' do
+      before do
+        get :new
+      end
+
+      it 'redirects to sign in view' do
+        expect(response).to redirect_to(new_user_session_path)
+      end
+
+    end
+  end
   #
   # describe "GET #create" do
   #   it "returns http success" do
