@@ -35,6 +35,7 @@ gem 'draper'
 gem 'rails-i18n', '~> 5.1'
 gem 'faker'
 gem 'factory_bot_rails'
+gem 'datetime_picker_input' 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

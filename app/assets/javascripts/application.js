@@ -15,6 +15,6 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery
-//= require popper
 //= require bootstrap-sprockets
 //= require bootstrap/dropdown
+//= require datetime_picker_input
