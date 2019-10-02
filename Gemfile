@@ -23,7 +23,7 @@ gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'devise', '>= 4.7.1'
 gem 'haml-rails', '~> 2.0'
 gem 'jbuilder', '~> 2.5'
@@ -35,6 +35,7 @@ gem 'draper'
 gem 'rails-i18n', '~> 5.1'
 gem 'faker'
 gem 'factory_bot_rails'
+gem 'datetime_picker_input' 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
